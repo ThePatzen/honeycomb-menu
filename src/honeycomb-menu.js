@@ -1,7 +1,16 @@
 import { LitElement, html, css } from 'lit';
 import "./honeycomb-menu-item.js";
 import "./xy-pad.js";
-import { objectEvalTemplate, getTemplateOrValue, stringToBool, fireEvent, lovelace_view, provideHass, honeycomb_menu_templates } from "./helpers.js";
+import {
+    objectEvalTemplate,
+    getTemplateOrValue,
+    stringToBool,
+    fireEvent,
+    lovelace_view,
+    provideHass,
+    honeycomb_menu_templates,
+    lovelace_root
+} from "./helpers.js";
 
 const hass = document.querySelector('home-assistant').hass;
 
@@ -429,8 +438,10 @@ class HoneycombMenu extends LitElement
         _x = clamp( _x - rect.left, bounds.min.x, bounds.max.x - 5 );
         _y = clamp( _y - rect.top, bounds.min.y, bounds.max.y - 5 );
 
+        let scrollOffset = window.scrollY;
+
         this.style.left = `${_x - container.w}px`;
-        this.style.top = `${_y - (container.h - rect.top)}px`;
+        this.style.top = `${_y - (container.h - rect.top - scrollOffset)}px`;
     }
 
     _setCssVarProperty(orig_property, var_property)
