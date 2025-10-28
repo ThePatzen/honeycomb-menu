@@ -14,12 +14,12 @@
     "author": "Sian Croser",
     "license": "GPLv3",
     "devDependencies": {
-        "webpack": "^4.42.0",
-        "webpack-cli": "^3.3.11"
+        "webpack": "^5.102.1",
+        "webpack-cli": "^6.0.1"
     },
     "dependencies": {
-        "lodash": "^4.17.19",
-        "lit": "^2.1.2",
-        "lit-element": "^2.2.1"
+        "lodash": "^4.17.21",
+        "lit": "^3.3.1",
+        "lit-element": "^4.2.1"
     }
 }

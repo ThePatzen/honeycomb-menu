@@ -225,8 +225,6 @@ class HoneycombMenu extends LitElement
                 animation-duration: 500ms;
             }
             .honeycombs {
-                --filter-color: rgba(0, 0, 0, 0.76);
-                filter: drop-shadow(2px 4px 3px var(--filter-color) );
                 width: var(--container-width);
                 height: var(--container-height);
                 pointer-events: none;
@@ -341,7 +339,6 @@ class HoneycombMenu extends LitElement
     display(_view, _x, _y)
     {
         this.view = _view;
-        this.view.style.position = 'relative';
 
         this.view.append( this );
 
@@ -433,7 +430,7 @@ class HoneycombMenu extends LitElement
         _y = clamp( _y - rect.top, bounds.min.y, bounds.max.y - 5 );
 
         this.style.left = `${_x - container.w}px`;
-        this.style.top = `${_y - container.h}px`;
+        this.style.top = `${_y - (container.h - rect.top)}px`;
     }
 
     _setCssVarProperty(orig_property, var_property)
